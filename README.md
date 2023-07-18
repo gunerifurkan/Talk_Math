@@ -1,2 +1,2 @@
 # Talk_Math
-Voice Calculator Application 
+This is a voice-controlled calculator application developed in Python using PyQt5 for the graphical user interface. The application uses speech recognition to receive and process mathematical commands in Turkish. It responds by performing the relevant mathematical operations and then provides results using synthesized speech. The application's user interface consists of a label that displays instructions or results, a button to activate speech recognition and calculation, a button to display previous results, and a button to close the application. Additionally, the code includes hover effects for the label and buttons for better interactivity.
