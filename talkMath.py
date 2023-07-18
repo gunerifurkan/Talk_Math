@@ -157,7 +157,7 @@ class CalculatorApp(QMainWindow):
         self.calculate_btn.setVisible(False)
         self.show_results_btn.setVisible(False)
         self.exit_btn.setVisible(False)  # Butonu gizle
-        QApplication.processEvents()
+        QApplication.processEvents()  # Update the GUI
         r = sr.Recognizer()
         with sr.Microphone() as source:
             audio = r.listen(source)
@@ -196,7 +196,6 @@ class CalculatorApp(QMainWindow):
         button_reply = QMessageBox.question(self, 'ÇIKIŞ YAP', "Çıkmak istediğinizden emin misiniz?",
                                             QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if button_reply == QMessageBox.Yes:
-            print('Çıkış Yapılıyor...')
             sys.exit()
         else:
             pass
