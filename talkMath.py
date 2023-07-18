@@ -156,13 +156,13 @@ class CalculatorApp(QMainWindow):
         self.label.setVisible(True)
         self.calculate_btn.setVisible(False)
         self.show_results_btn.setVisible(False)
-        self.exit_btn.setVisible(False)  # Çıkış butonunu gizle
-        QApplication.processEvents()  # Update the GUI
+        self.exit_btn.setVisible(False)  # Butonu gizle
+        QApplication.processEvents()
         r = sr.Recognizer()
         with sr.Microphone() as source:
             audio = r.listen(source)
 
-        # İşlem bittiğinde Çıkış butonunu tekrar göster
+        # İşlem bittiğinde butonu tekrar göster
         self.exit_btn.setVisible(True)
         self.calculate_btn.setVisible(True)
         self.show_results_btn.setVisible(True)
