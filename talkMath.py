@@ -18,14 +18,14 @@ def speak(text):
 def process_command(command):
     words = command.split()
     if len(words) < 3:
-        return "Anladığım bir işlem değil, lütfen tam bir işlem girin."
+        return "Anlayamadım, lütfen tekrarlar mısınız?"
 
     try:
         num1 = float(words[0])
         operator = words[1]
         num2 = float(words[2])
     except ValueError:
-        return "Sayıları anlayamadım, lütfen geçerli sayılar girin."
+        return "Sayıları anlayamadım, lütfen geçerli sayılar söyleyin."
 
     if operator in ["artı", "+"]:
         result = num1 + num2
@@ -33,7 +33,7 @@ def process_command(command):
     elif operator in ["eksi", "-"]:
         result = num1 - num2
 
-    elif operator in ["çarpı", "*", "kere"]:
+    elif operator in ["çarpı", "*", "kere", "kez"]:
         result = num1 * num2
 
     elif operator in ["bölü", "/"]:
@@ -42,7 +42,7 @@ def process_command(command):
         result = num1 / num2
 
     else:
-        return "Anladığım bir işlem değil, lütfen tam bir işlem girin."
+        return "Anlayamadım, lütfen tekrarlar mısınız?"
     
     return int(result)
 
@@ -152,7 +152,7 @@ class CalculatorApp(QMainWindow):
         self.button_layout.addWidget(self.exit_btn)
 
     def listen_for_command(self):
-        self.label.setText("DİNLENİYOR...")
+        self.label.setText("SİZİ DİNLİYORUM...")
         self.label.setVisible(True)
         self.calculate_btn.setVisible(False)
         self.show_results_btn.setVisible(False)
@@ -178,12 +178,12 @@ class CalculatorApp(QMainWindow):
             self.label.setText(str(response))
 
         except sr.UnknownValueError:
-            print("Ne dediğinizi anlayamadım, lütfen tekrar söyleyin.")
-            speak("Ne dediğinizi anlayamadım, lütfen tekrar söyleyin.")
+            print("Anlayamadım, lütfen tekrarlar mısınız?")
+            speak("Anlayamadım, lütfen tekrarlar mısınız?")
 
         except sr.RequestError as e:
-            print(f"Ses tanıma servisiyle ilgili bir hata oluştu: {e}")
-            speak(f"Ses tanıma servisiyle ilgili bir hata oluştu: {e}")
+            print(f"Ses Tanıma Servisi Hatası: {e}")
+            speak(f"Ses Tanıma Servisi Hatası: {e}")
 
     def show_results(self):
         if self.results:
