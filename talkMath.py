@@ -25,7 +25,7 @@ def process_command(command):
         operator = words[1]
         num2 = float(words[2])
     except ValueError:
-        return "Sayıları anlayamadım, lütfen geçerli sayılar söyleyin."
+        return "Sayıları anlayamadım, lütfen geçerli sayılar söyleyiniz."
 
     if operator in ["artı", "+"]:
         result = num1 + num2
